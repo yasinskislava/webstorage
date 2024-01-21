@@ -9,21 +9,20 @@ for (const i of tasks) {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
 const form1 = document.getElementById("task2_1");
-let c = 0;
+localStorage.setItem("form1", JSON.stringify({
+    username: "",
+    password: ""
+}));
 form1.addEventListener("submit", () => {
     const tempInfo = {
         username: form1.elements.Username.value,
         password: form1.elements.Password.value
     }
     localStorage.setItem("form1", JSON.stringify(tempInfo));
-    c++;
 });
 document.addEventListener("DOMContentLoaded", () => {
-    if (c !== 0) {
-        form1.elements.Username.value = JSON.parse(localStorage.getItem("form1")).username;
-        form1.elements.Password.value = JSON.parse(localStorage.getItem("form1")).password;
-    }
-    
+    form1.elements.Username.value = JSON.parse(localStorage.getItem("form1")).username;
+    form1.elements.Password.value = JSON.parse(localStorage.getItem("form1")).password;
 });
 ///////////////////////////////////////////////////////////////////////////////////////////
 const form2 = document.getElementById("task2_2");
