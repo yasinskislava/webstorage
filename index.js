@@ -52,6 +52,9 @@ const editIndex = document.getElementById("editIndex");
 const deleteBtn = document.getElementById("delete");
 const deleteIndex = document.getElementById("deleteIndex");
 const list = document.querySelector(".links-list");
+if (JSON.parse(localStorage.getItem("linksArr")) === undefined || JSON.parse(localStorage.getItem("linksArr")) === null) {
+    localStorage.setItem("linksArr", JSON.stringify([]));
+}
 if (JSON.parse(localStorage.getItem("linksArr")).length === 0) {
     localStorage.setItem("linksArr", JSON.stringify([
     "https://www.youtube.com/",
