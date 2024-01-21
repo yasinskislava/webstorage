@@ -9,10 +9,13 @@ for (const i of tasks) {
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
 const form1 = document.getElementById("task2_1");
-localStorage.setItem("form1", JSON.stringify({
-    username: "",
-    password: ""
-}));
+if (JSON.parse(localStorage.getItem("form1")) === undefined || JSON.parse(localStorage.getItem("form1")) === null) {
+    localStorage.setItem("form1", JSON.stringify({
+        username: "",
+        password: ""
+    }));
+}
+
 form1.addEventListener("submit", () => {
     const tempInfo = {
         username: form1.elements.Username.value,
